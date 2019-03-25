@@ -6,9 +6,10 @@ using UnityEngine.UI;
 public class Order
 {
     public List<Item> items;
+    public List<Item> completedItems;
     public float timer;
     private float totalTime;
-    public GameObject ticketUI;
+    public GameObject ticketUI, bag, bagUI;
 
     public Order(List<Item> i, float time)
     {
