@@ -45,4 +45,19 @@ public class PlayerMovement : MonoBehaviour
         //rb.AddForce((tmpVec.normalized * Time.deltaTime * speed));
         gameObject.transform.rotation = startRotation;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Slow")
+        {
+            speed = 2.0f;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Slow")
+        {
+            speed = 5.0f;
+        }
+    }
 }
