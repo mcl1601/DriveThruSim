@@ -111,7 +111,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: ea0d82e823d06f946949c5d51b9bcd8d, type: 2}
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,8 +197,8 @@ GameObject:
   m_Name: Wall (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!65 &185439878
 BoxCollider:
@@ -288,8 +288,8 @@ GameObject:
   m_Name: Wall (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!65 &236188500
 BoxCollider:
@@ -380,7 +380,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!65 &473311393
 BoxCollider:
@@ -552,8 +552,8 @@ GameObject:
   m_Name: Wall (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!65 &882271214
 BoxCollider:
@@ -643,8 +643,8 @@ GameObject:
   m_Name: Wall (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!65 &928456092
 BoxCollider:
@@ -734,8 +734,8 @@ GameObject:
   m_Name: Barrier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!65 &1128840480
 BoxCollider:
@@ -899,8 +899,8 @@ GameObject:
   m_Name: Wall (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!65 &1185092190
 BoxCollider:
@@ -991,7 +991,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!65 &1252379240
 BoxCollider:
@@ -1081,8 +1081,8 @@ GameObject:
   m_Name: Counter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!65 &1356527244
 BoxCollider:
@@ -1172,8 +1172,8 @@ GameObject:
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!65 &1560650627
 BoxCollider:
@@ -1263,8 +1263,8 @@ GameObject:
   m_Name: Barrier (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!65 &1944607760
 BoxCollider:
@@ -1419,6 +1419,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burgers
       objectReference: {fileID: 0}
+    - target: {fileID: 1859362012342791129, guid: e98e998fd01e1fa40830850b0001271c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1859362012342791129, guid: e98e998fd01e1fa40830850b0001271c,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5023281622400460371, guid: e98e998fd01e1fa40830850b0001271c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1487,6 +1497,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bagging
+      objectReference: {fileID: 0}
+    - target: {fileID: 2320973770223690875, guid: b1ad625d00f9e9e4b84c1bf132b7b03e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2320973770223690875, guid: b1ad625d00f9e9e4b84c1bf132b7b03e,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2991720663292917197, guid: b1ad625d00f9e9e4b84c1bf132b7b03e,
         type: 3}
@@ -1557,6 +1577,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Drinks
       objectReference: {fileID: 0}
+    - target: {fileID: 3482980982218182420, guid: cec3a6421333adb4aad60d5fca3e0449,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3482980982218182420, guid: cec3a6421333adb4aad60d5fca3e0449,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8884645414636555190, guid: cec3a6421333adb4aad60d5fca3e0449,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1625,6 +1655,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fries
+      objectReference: {fileID: 0}
+    - target: {fileID: 7755312583332154182, guid: 031b771ba2c9e0e479319eb762a24f7a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7755312583332154182, guid: 031b771ba2c9e0e479319eb762a24f7a,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5390160840776469205, guid: 031b771ba2c9e0e479319eb762a24f7a,
         type: 3}
