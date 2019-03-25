@@ -24,27 +24,25 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey("w"))
         {
             tmpVec += Vector3.forward;
-            //rb.MovePosition(gameObject.transform.position + (Vector3.forward * Time.deltaTime * speed));
         }
         if (Input.GetKey("s"))
         {
-            //rb.MovePosition(gameObject.transform.position + (-Vector3.forward * Time.deltaTime * speed));
             tmpVec += -Vector3.forward;
         }
         if (Input.GetKey("a"))
         {
-            //rb.MovePosition(gameObject.transform.position + (-Vector3.right* Time.deltaTime * speed));
             tmpVec += -Vector3.right;
         }
         if (Input.GetKey("d"))
         {
-            //rb.MovePosition(gameObject.transform.position + (Vector3.right * Time.deltaTime * speed));
             tmpVec += Vector3.right;
         }
 
 
         rb.MovePosition(gameObject.transform.position + (tmpVec.normalized * Time.deltaTime * speed));
-
+        //
+        //Ice-like movement if we want it
+        //rb.AddForce((tmpVec.normalized * Time.deltaTime * speed));
         gameObject.transform.rotation = startRotation;
     }
 }
