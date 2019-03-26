@@ -16,6 +16,7 @@ public class Order
         items = i;
         timer = time;
         totalTime = time;
+        completedItems = new List<Item>();
     }
 
     public bool UpdateTimer()
