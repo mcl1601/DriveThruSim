@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1326433233109605512}
   - component: {fileID: 1928885710792029600}
   - component: {fileID: 4995449981393781364}
+  - component: {fileID: 3105431022947176262}
   m_Layer: 0
   m_Name: Burgers
   m_TagString: Burgers
@@ -79,6 +80,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!65 &4995449981393781364
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859362012342791129}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &3105431022947176262
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
