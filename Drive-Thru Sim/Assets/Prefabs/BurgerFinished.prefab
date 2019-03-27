@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8858137431663613565}
   - component: {fileID: 1828747063581027308}
   - component: {fileID: 2731668883571022916}
-  - component: {fileID: 4055570129574204968}
   m_Layer: 0
   m_Name: BurgerFinished
   m_TagString: Burgers
@@ -28,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 3236022460813652240}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.86, y: 0.17, z: -7.17}
-  m_LocalScale: {x: 0.27582976, y: 0.016668197, z: 0.25900823}
+  m_LocalScale: {x: 0.5, y: 0.016668197, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -50,7 +49,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dd43cbf981317144bc8b97dad360620, type: 2}
+  - {fileID: 2100000, guid: fa77376e888b68c4fa54301e90ea3db7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -78,16 +77,3 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3236022460813652240}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &4055570129574204968
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3236022460813652240}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 2, z: 1.0000002}
-  m_Center: {x: 0.00000005960464, y: 0, z: -0.00000008940697}

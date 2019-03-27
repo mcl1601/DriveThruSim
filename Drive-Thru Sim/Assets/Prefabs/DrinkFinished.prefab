@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3912597889149136929}
   - component: {fileID: 5548971016000481860}
   - component: {fileID: 6828412462660040270}
-  - component: {fileID: 6082916446954473188}
   m_Layer: 0
   m_Name: DrinkFinished
   m_TagString: Burgers
@@ -28,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 3529258628238424009}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.712, y: 0.17, z: -7.17}
-  m_LocalScale: {x: 0.18620376, y: 0.20327757, z: 0.16627954}
+  m_LocalScale: {x: 0.5, y: 0.8, z: 0.8}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -50,7 +49,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a4cfb8b9f487d1543b29cdd82550ba73, type: 2}
+  - {fileID: 2100000, guid: fbb8b364bb5ffdc4ab90f4d9cf6081d3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -77,18 +76,4 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3529258628238424009}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &6082916446954473188
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3529258628238424009}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1.9999999
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}

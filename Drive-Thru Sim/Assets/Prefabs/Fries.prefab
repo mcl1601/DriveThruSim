@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3624058358920952862}
   - component: {fileID: 6754109862155700009}
   - component: {fileID: 8096221127459110275}
+  - component: {fileID: 5961994801842124161}
   m_Layer: 0
   m_Name: Fries
   m_TagString: Fries
@@ -105,3 +106,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5961994801842124161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7755312583332154182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b1487e82ca0cc94998cc7a1b74571ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prepTime: 3
+  overflowTime: 0
+  timerVis: {fileID: 0}
+  item: {fileID: 9209102407798527482, guid: 7ae2d638b9676b24da41db20269c573c, type: 3}
