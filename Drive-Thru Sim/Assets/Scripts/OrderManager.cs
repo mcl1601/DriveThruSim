@@ -33,19 +33,25 @@ public class OrderManager : MonoBehaviour
             Item.Drink
         };
         // create two orders
-        Order o1 = new Order(items, 10f);
-        CreateOrderTicket(o1);
+        CreateOrderTicket(items, 10f);
         //Order o2 = new Order(new List<Item> { Item.Fry }, 5f);
         //CreateOrderTicket(o2);
     }
 
-    void CreateOrderTicket(Order o)
+    /// <summary>
+    /// Builds an Order and a ticket UI element.
+    /// Makes call to create a bag for this order
+    /// </summary>
+    /// <param name="o">The order whose data we're using</param>
+    void CreateOrderTicket(List<Item> items, float timer)
     {
+        // make a new order object
+        Order o = new Order(items, timer);
         // instantiate the ticket
         GameObject g = Instantiate(orderTicketUI, ticketParent);
         // set the text of the ticket
         Text t = g.transform.GetChild(0).GetComponent<Text>();
-        foreach(Item i in o.items)
+        foreach(Item i in items)
         {
             t.text += i.ToString() + "\n";
         }
@@ -57,12 +63,54 @@ public class OrderManager : MonoBehaviour
         orders.Add(o);
     }
 
+    /// <summary>
+    /// Creates a new bag on the bagging counter.
+    /// Also creates a bag popover UI element
+    /// </summary>
+    /// <param name="o">The order whose data we're using</param>
+    void AddBagToStation(Order o)
+    {
+        // get half width of counter
+        float width = transform.localScale.x * 0.5f;
+        // how many bags to render
+        float numBags = orders.Count;
+
+        // calculate the x coordinate of where the bag should go
+        float x = transform.position.x - width + (bagWidth * 0.5f + bagSpacing) // where the first bag is placed
+            + ((bagWidth + (2 * bagSpacing)) * numBags);                        // times each bag after it
+        // set the position of the bag
+        Vector3 v = new Vector3(x, transform.position.y + (transform.localScale.y * 0.5f) + bagWidth, transform.position.z);
+        GameObject g = Instantiate(bagPre, v, Quaternion.identity);
+        g.GetComponent<Bag>().order = o;
+
+        // create the UI popover or the bag
+        GameObject ui = Instantiate(bagUI, GameObject.Find("Canvas").transform);
+        // position it above the gameobject
+        ui.transform.position = Camera.main.WorldToScreenPoint(v);
+
+        // set the text of the popover
+        Text t = ui.transform.GetChild(0).GetComponent<Text>();
+        t.color = Color.red;
+        foreach (Item i in o.items)
+        {
+            t.text += i.ToString()[0] + "\n";
+        }
+
+        // set properties on the object
+        o.bag = g;
+        o.bagUI = ui;
+    }
+
     // Update is called once per frame
     void Update()
     {
         UpdateOrders();
     }
 
+    /// <summary>
+    /// Update the timer for each order.
+    /// Delete any expired orders
+    /// </summary>
     void UpdateOrders()
     {
         // update the timer on each bag, remove if necessary
@@ -81,6 +129,10 @@ public class OrderManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Removes gameobjects and the order object
+    /// </summary>
+    /// <param name="o">The order to delete</param>
     void DeleteOrder(Order o)
     {
         Destroy(o.bag);
@@ -89,39 +141,11 @@ public class OrderManager : MonoBehaviour
         UpdateBags(orders.IndexOf(o));
         orders.Remove(o);
     }
-
-    void AddBagToStation(Order o)
-    {
-        // get half width of counter
-        float width = transform.localScale.x * 0.5f;
-        // how many bags to render
-        float numBags = orders.Count;
-
-        // calculate the x coordinate of where the bag should go
-        float x = transform.position.x - width + (bagWidth * 0.5f + bagSpacing) + ((bagWidth + (2 * bagSpacing)) * numBags);
-        // set the position of the bag
-        Vector3 v = new Vector3(x, transform.position.y + (transform.localScale.y * 0.5f) + bagWidth, transform.position.z);
-        GameObject g = Instantiate(bagPre, v, Quaternion.identity);
-        g.GetComponent<Bag>().order = o;
-
-        // create the UI popover or the bag
-        GameObject ui = Instantiate(bagUI, GameObject.Find("Canvas").transform);
-        // position it above the gameobject
-        ui.transform.position =  Camera.main.WorldToScreenPoint(v);
-
-        // set the text of the popover
-        Text t = ui.transform.GetChild(0).GetComponent<Text>();
-        t.color = Color.red;
-        foreach (Item i in o.items)
-        {
-            t.text += i.ToString()[0] + "\n";
-        }
-
-        // set properties on the object
-        o.bag = g;
-        o.bagUI = ui;
-    }
-
+    
+    /// <summary>
+    /// When a bag is deleted, slide all other bags down
+    /// </summary>
+    /// <param name="index">The index of the recently deleted bag</param>
     void UpdateBags(int index)
     {
         // slide each bag down that needs to be moved
@@ -132,10 +156,18 @@ public class OrderManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Adds an item to the completedItem list of a specific order.
+    /// Called from Bag.cs
+    /// </summary>
+    /// <param name="item">The item that was added</param>
+    /// <param name="o">the order the item goes to</param>
     public void AddItemToBag(Item item, Order o)
     {
         Debug.Log("Adding " + item.ToString() + " to bag");
+        // add item to completed list
         o.completedItems.Add(item);
+        // change the text of the popover
         Text t = o.bagUI.transform.GetChild(0).GetComponent<Text>();
         t.text = "";
         foreach (Item i in o.items)
@@ -143,9 +175,11 @@ public class OrderManager : MonoBehaviour
             t.text += (o.completedItems.Contains(i) ? "<color=#00ff00ff>" : "<color=#ff0000ff>") + i.ToString()[0] + "</color>\n";
         }
 
+        // check if the bag is done
         if(o.completedItems.Count == o.items.Count)
         {
             // bag completed
+            Debug.Log("<color=#00ff00ff>Order Completed</color>");
             toRemove.Add(o);
         }
     }
