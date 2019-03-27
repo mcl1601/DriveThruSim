@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2398422041625962374}
   m_Layer: 0
   m_Name: FriesFinished
-  m_TagString: Burgers
+  m_TagString: Fries
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8

@@ -33,7 +33,7 @@ public class OrderManager : MonoBehaviour
             Item.Drink
         };
         // create two orders
-        CreateOrderTicket(items, 10f);
+        CreateOrderTicket(items, 60f);
         //Order o2 = new Order(new List<Item> { Item.Fry }, 5f);
         //CreateOrderTicket(o2);
     }

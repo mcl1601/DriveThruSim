@@ -25,6 +25,9 @@ public class Station : MonoBehaviour
         activator = gameObject.GetComponent<BoxCollider>();
         inUse = false;
         timer = 0.0f;
+
+        // position it above the gameobject
+        timerVis.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
     }
 
     // Update is called once per frame
