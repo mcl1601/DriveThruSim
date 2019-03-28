@@ -127,6 +127,7 @@ public class OrderManager : MonoBehaviour
         {
             DeleteOrder(o);
         }
+        toRemove.Clear();
     }
 
     /// <summary>
@@ -182,5 +183,21 @@ public class OrderManager : MonoBehaviour
             Debug.Log("<color=#00ff00ff>Order Completed</color>");
             toRemove.Add(o);
         }
+    }
+
+    public void OrderWindowNewOrder()
+    {
+        if (orders.Count == 4) return;
+        // randomize the order contents
+        int r1 = Random.Range(1, 4);
+        List<Item> items = new List<Item>();
+        for(int i = 0; i < r1; i++)
+        {
+            Item r2 = (Item)Random.Range(0, 3);
+            while(items.Contains(r2))
+                r2 = (Item)Random.Range(0, 3);
+            items.Add(r2);
+        }
+        CreateOrderTicket(items, Random.Range(30f, 60f));
     }
 }

@@ -19,12 +19,17 @@ public class Station : MonoBehaviour
 
     protected BoxCollider activator; // Collider around the station for triggering
 
+    private Color matOriginal;   // original color of this station
+    private Material mat;           // material of this station
+
     // Start is called before the first frame update
     void Start()
     {
         activator = gameObject.GetComponent<BoxCollider>();
         inUse = false;
         timer = 0.0f;
+        matOriginal = gameObject.GetComponent<Renderer>().material.color;
+        mat = gameObject.GetComponent<Renderer>().material;
 
         // position it above the gameobject
         timerVis.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
@@ -70,6 +75,7 @@ public class Station : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        mat.color = matOriginal + new Color(0.1f, 0.1f, 0.1f);
         if(Input.GetKeyDown(KeyCode.Space) && inUse == false)
         {
             TriggerStation();
@@ -81,5 +87,10 @@ public class Station : MonoBehaviour
                 PickUp(other.transform);
             }
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        mat.color = matOriginal;
     }
 }
