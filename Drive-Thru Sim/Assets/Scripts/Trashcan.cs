@@ -21,7 +21,7 @@ public class Trashcan : MonoBehaviour
         if( other.gameObject.transform.childCount != 0)
         {
             gameObject.GetComponent<Renderer>().material.color = Color.red;
-            if(Input.GetKeyDown(KeyCode.Space))
+            if(Input.GetKeyDown(KeyCode.E))
             {
                 gameObject.GetComponent<Renderer>().material.color = Color.gray;
                 Destroy(other.gameObject.transform.GetChild(0).gameObject);

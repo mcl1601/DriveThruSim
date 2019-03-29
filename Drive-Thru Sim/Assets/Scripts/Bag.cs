@@ -46,7 +46,7 @@ public class Bag : MonoBehaviour
         if (other.gameObject.transform.childCount != 0)
         {
             gameObject.GetComponent<Renderer>().material.color = Color.yellow;
-            if(Input.GetKeyDown(KeyCode.Space))
+            if(Input.GetKeyDown(KeyCode.E))
             {
                 // check if the object has a tag
                 string tag = other.gameObject.transform.GetChild(0).tag;

@@ -25,7 +25,7 @@ public class WindowOrder : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         mat.color = matOriginal + new Color(0.3f,0.3f,0.3f);
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             om.OrderWindowNewOrder();
         }

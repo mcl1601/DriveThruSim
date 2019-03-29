@@ -76,11 +76,11 @@ public class Station : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         mat.color = matOriginal + new Color(0.1f, 0.1f, 0.1f);
-        if(Input.GetKeyDown(KeyCode.Space) && inUse == false)
+        if(Input.GetKeyDown(KeyCode.E) && inUse == false)
         {
             TriggerStation();
         }
-        else if(Input.GetKeyDown(KeyCode.Space) && timer > prepTime)
+        else if(Input.GetKeyDown(KeyCode.E) && timer > prepTime)
         {
             if(other.gameObject.transform.childCount == 0)
             {
