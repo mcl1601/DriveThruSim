@@ -86,7 +86,8 @@ public class OrderManager : MonoBehaviour
         // create the UI popover or the bag
         GameObject ui = Instantiate(bagUI, GameObject.Find("Canvas").transform);
         // position it above the gameobject
-        ui.transform.position = Camera.main.WorldToScreenPoint(v);
+        //ui.transform.position = Camera.main.WorldToScreenPoint(v);
+        ui.transform.position = new Vector3(v.x, v.y, v.z+.5f);
 
         // set the text of the popover
         Text t = ui.transform.GetChild(0).GetComponent<Text>();
@@ -168,6 +169,7 @@ public class OrderManager : MonoBehaviour
         Debug.Log("Adding " + item.ToString() + " to bag");
         // add item to completed list
         o.completedItems.Add(item);
+
         // change the text of the popover
         Text t = o.bagUI.transform.GetChild(0).GetComponent<Text>();
         t.text = "";

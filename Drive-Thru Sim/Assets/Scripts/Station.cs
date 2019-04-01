@@ -82,10 +82,10 @@ public class Station : MonoBehaviour
         }
         else if(Input.GetKeyDown(KeyCode.E) && timer > prepTime)
         {
-            if(other.gameObject.transform.childCount == 0)
-            {
+            //if(other.gameObject.transform.childCount == 0)
+            //{
                 PickUp(other.transform);
-            }
+            //}
         }
     }
 
