@@ -48,7 +48,7 @@ public class OrderManager : MonoBehaviour
         // make a new order object
         Order o = new Order(items, timer);
         // instantiate the ticket
-        GameObject g = Instantiate(orderTicketUI, ticketParent);
+        GameObject g = Instantiate(orderTicketUI, GameObject.Find("Canvas").transform);
         // set the text of the ticket
         Text t = g.transform.GetChild(0).GetComponent<Text>();
         foreach(Item i in items)
@@ -58,9 +58,10 @@ public class OrderManager : MonoBehaviour
         // set properties
         o.ticketUI = g;
         // create the bag
-        AddBagToStation(o);
+        AddBagToStation(o,g);
         // add the order to the list
         orders.Add(o);
+        //g.transform.position = o
     }
 
     /// <summary>
@@ -68,7 +69,7 @@ public class OrderManager : MonoBehaviour
     /// Also creates a bag popover UI element
     /// </summary>
     /// <param name="o">The order whose data we're using</param>
-    void AddBagToStation(Order o)
+    void AddBagToStation(Order o, GameObject tUI)
     {
         // get half width of counter
         float width = transform.localScale.x * 0.5f;
@@ -88,6 +89,8 @@ public class OrderManager : MonoBehaviour
         // position it above the gameobject
         //ui.transform.position = Camera.main.WorldToScreenPoint(v);
         ui.transform.position = new Vector3(v.x, v.y, v.z+.5f);
+
+        tUI.transform.position = new Vector3(v.x, v.y + 1f, v.z - 1f);
 
         // set the text of the popover
         Text t = ui.transform.GetChild(0).GetComponent<Text>();

@@ -50,7 +50,7 @@ public class Station : MonoBehaviour
         inUse = true;
         timer = 0.0f;
 
-        GameObject itemInit = Instantiate(item, new Vector3(0, gameObject.transform.localScale.y / 2, 0), Quaternion.identity);
+        GameObject itemInit = Instantiate(item, new Vector3(0, gameObject.transform.localScale.y / 2 + .05f, 0), Quaternion.identity);
         itemInit.transform.parent = gameObject.transform;
         itemInit.transform.localPosition = new Vector3(0f, itemInit.transform.position.y, 0f);
 
@@ -59,15 +59,19 @@ public class Station : MonoBehaviour
 
     protected void PickUp(Transform player)
     {
-        inUse = false;
+        if (player.childCount < 3)
+        {
+            inUse = false;
 
-        gameObject.transform.GetChild(0).transform.position = player.transform.GetChild(1).GetChild(0).transform.position;
+            gameObject.transform.GetChild(0).transform.position = player.transform.GetChild(1).GetChild(0).transform.position;
 
-        gameObject.transform.GetChild(0).SetParent(player);
+            gameObject.transform.GetChild(0).SetParent(player);
 
-        timerVis.fillAmount = 0;
+            timerVis.fillAmount = 0;
 
-        Debug.Log("Picking up from station");
+            Debug.Log("Picking up from station");
+        }
+       
     }
 
     protected void HireWorker()
