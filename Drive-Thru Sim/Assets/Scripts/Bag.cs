@@ -50,7 +50,7 @@ public class Bag : MonoBehaviour
             {
                 // check if the object has a tag
                 //string tag = other.gameObject.transform.GetChild(0).tag;
-                string tag = other.gameObject.transform.GetChild(1).tag;
+                string tag = other.gameObject.transform.GetChild(2).tag;
                 if (tag == null) return;
                 Item item = Item.Burger;
                 switch (tag)
@@ -71,7 +71,7 @@ public class Bag : MonoBehaviour
                     // pass the item to the manager
                     om.AddItemToBag(item, order);
                     gameObject.GetComponent<Renderer>().material.color = Color.white;
-                    Destroy(other.gameObject.transform.GetChild(1).gameObject);
+                    Destroy(other.gameObject.transform.GetChild(2).gameObject);
                 }
             }
         }

@@ -61,6 +61,8 @@ public class Station : MonoBehaviour
     {
         inUse = false;
 
+        gameObject.transform.GetChild(0).transform.position = player.transform.GetChild(1).GetChild(0).transform.position;
+
         gameObject.transform.GetChild(0).SetParent(player);
 
         timerVis.fillAmount = 0;
