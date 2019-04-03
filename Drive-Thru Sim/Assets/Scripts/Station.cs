@@ -32,7 +32,8 @@ public class Station : MonoBehaviour
         mat = gameObject.GetComponent<Renderer>().material;
 
         // position it above the gameobject
-        timerVis.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+        //timerVis.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+        timerVis.transform.position = gameObject.transform.position + Vector3.up * .6f ;
     }
 
     // Update is called once per frame
