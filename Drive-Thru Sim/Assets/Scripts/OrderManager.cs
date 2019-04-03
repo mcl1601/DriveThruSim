@@ -24,7 +24,7 @@ public class OrderManager : MonoBehaviour
         orders = new List<Order>();
         toRemove = new List<Order>();
         ticketParent = GameObject.Find("TicketParent").transform;
-
+        ticketParent.transform.position = GameObject.Find("Screen").transform.position;
         // For testing, create an inital order
         List<Item> items = new List<Item>
         {
@@ -48,7 +48,7 @@ public class OrderManager : MonoBehaviour
         // make a new order object
         Order o = new Order(items, timer);
         // instantiate the ticket
-        GameObject g = Instantiate(orderTicketUI, GameObject.Find("Canvas").transform);
+        GameObject g = Instantiate(orderTicketUI, ticketParent);
         // set the text of the ticket
         Text t = g.transform.GetChild(0).GetComponent<Text>();
         foreach(Item i in items)
@@ -80,7 +80,7 @@ public class OrderManager : MonoBehaviour
         float x = transform.position.x - width + (bagWidth * 0.5f + bagSpacing) // where the first bag is placed
             + ((bagWidth + (2 * bagSpacing)) * numBags);                        // times each bag after it
         // set the position of the bag
-        Vector3 v = new Vector3(x, transform.position.y + (transform.localScale.y * 0.5f) + bagWidth, transform.position.z);
+        Vector3 v = new Vector3(x, transform.position.y + (transform.localScale.y * 0.25f) + bagWidth, transform.position.z);
         GameObject g = Instantiate(bagPre, v, Quaternion.identity);
         g.GetComponent<Bag>().order = o;
 
@@ -90,7 +90,7 @@ public class OrderManager : MonoBehaviour
         //ui.transform.position = Camera.main.WorldToScreenPoint(v);
         ui.transform.position = new Vector3(v.x, v.y, v.z+.5f);
 
-        tUI.transform.position = new Vector3(v.x, v.y + 1f, v.z - 1f);
+        //tUI.transform.position = new Vector3(v.x, v.y + 1f, v.z - 1f);
 
         // set the text of the popover
         Text t = ui.transform.GetChild(0).GetComponent<Text>();
