@@ -34,6 +34,7 @@ public class Station : MonoBehaviour
         // position it above the gameobject
         //timerVis.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
         timerVis.transform.position = gameObject.transform.position + Vector3.up * .6f ;
+        timerVis.transform.rotation = gameObject.transform.rotation;
     }
 
     // Update is called once per frame

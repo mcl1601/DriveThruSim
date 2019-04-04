@@ -18,7 +18,7 @@ public class Trashcan : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if( other.gameObject.transform.childCount != 0)
+        if( other.gameObject.transform.childCount > 2)
         {
             gameObject.GetComponent<Renderer>().material.color = Color.red;
             if(Input.GetKeyDown(KeyCode.E))
