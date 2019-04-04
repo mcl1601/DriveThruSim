@@ -24,7 +24,7 @@ public class OrderManager : MonoBehaviour
         orders = new List<Order>();
         toRemove = new List<Order>();
         ticketParent = GameObject.Find("TicketParent").transform;
-        ticketParent.transform.position = GameObject.Find("Screen").transform.position;
+        ticketParent.transform.position = GameObject.Find("OrderLocation").transform.position;
         // For testing, create an inital order
         List<Item> items = new List<Item>
         {
