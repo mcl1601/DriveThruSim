@@ -33,7 +33,7 @@ public class OrderManager : MonoBehaviour
             Item.Drink
         };
         // create two orders
-        CreateOrderTicket(items, 60f);
+        CreateOrderTicket(items, 20f);
         //Order o2 = new Order(new List<Item> { Item.Fry }, 5f);
         //CreateOrderTicket(o2);
     }
@@ -51,6 +51,7 @@ public class OrderManager : MonoBehaviour
         GameObject g = Instantiate(orderTicketUI, ticketParent);
         // set the text of the ticket
         Text t = g.transform.GetChild(0).GetComponent<Text>();
+        t.color = Color.red;
         foreach(Item i in items)
         {
             t.text += i.ToString() + "\n";
@@ -85,24 +86,25 @@ public class OrderManager : MonoBehaviour
         g.GetComponent<Bag>().order = o;
 
         // create the UI popover or the bag
-        GameObject ui = Instantiate(bagUI, GameObject.Find("Canvas").transform);
+        //GameObject ui = Instantiate(bagUI, GameObject.Find("Canvas").transform);
         // position it above the gameobject
         //ui.transform.position = Camera.main.WorldToScreenPoint(v);
-        ui.transform.position = new Vector3(v.x, v.y, v.z+.5f);
+        //ui.transform.position = new Vector3(v.x, v.y, v.z+.5f);
 
         //tUI.transform.position = new Vector3(v.x, v.y + 1f, v.z - 1f);
 
         // set the text of the popover
-        Text t = ui.transform.GetChild(0).GetComponent<Text>();
+        /*Text t = ui.transform.GetChild(0).GetComponent<Text>();
         t.color = Color.red;
         foreach (Item i in o.items)
         {
             t.text += i.ToString()[0] + "\n";
-        }
+        }*/
 
         // set properties on the object
         o.bag = g;
-        o.bagUI = ui;
+        o.bagScript = g.GetComponent<Bag>();
+        //o.bagUI = ui;
     }
 
     // Update is called once per frame
@@ -141,7 +143,7 @@ public class OrderManager : MonoBehaviour
     void DeleteOrder(Order o)
     {
         Destroy(o.bag);
-        Destroy(o.bagUI);
+        //Destroy(o.bagUI);
         Destroy(o.ticketUI);
         UpdateBags(orders.IndexOf(o));
         orders.Remove(o);
@@ -157,7 +159,7 @@ public class OrderManager : MonoBehaviour
         for(int i = index + 1; i < orders.Count; i++)
         {
             orders[i].bag.transform.position -= new Vector3(bagSpacing * 2 + bagWidth, 0, 0);
-            orders[i].bagUI.transform.position = Camera.main.WorldToScreenPoint(orders[i].bag.transform.position);
+            //orders[i].bagUI.transform.position = Camera.main.WorldToScreenPoint(orders[i].bag.transform.position);
         }
     }
 
@@ -174,11 +176,11 @@ public class OrderManager : MonoBehaviour
         o.completedItems.Add(item);
 
         // change the text of the popover
-        Text t = o.bagUI.transform.GetChild(0).GetComponent<Text>();
+        Text t = o.ticketUI.transform.GetChild(0).GetComponent<Text>();
         t.text = "";
         foreach (Item i in o.items)
         {
-            t.text += (o.completedItems.Contains(i) ? "<color=#00ff00ff>" : "<color=#ff0000ff>") + i.ToString()[0] + "</color>\n";
+            t.text += (o.completedItems.Contains(i) ? "<color=#00ff00ff>" : "<color=#ff0000ff>") + i.ToString() + "</color>\n";
         }
 
         // check if the bag is done

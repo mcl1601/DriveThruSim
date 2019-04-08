@@ -8,10 +8,12 @@ public class Bag : MonoBehaviour
     public Order order;
 
     private OrderManager om;
+    private Light l;
 
     private void Start()
     {
         om = GameObject.Find("Bagging").GetComponent<OrderManager>();
+        l = transform.GetChild(0).gameObject.GetComponent<Light>();
     }
 
     private void Update()
@@ -80,5 +82,21 @@ public class Bag : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         gameObject.GetComponent<Renderer>().material.color = Color.white;
+    }
+
+    public void StartFlashing()
+    {
+        StartCoroutine("Flash");
+    }
+
+    IEnumerator Flash()
+    {
+        while(true)
+        {
+            l.intensity = 1;
+            yield return new WaitForSeconds(0.5f);
+            l.intensity = 0;
+            yield return new WaitForSeconds(0.5f);
+        }
     }
 }

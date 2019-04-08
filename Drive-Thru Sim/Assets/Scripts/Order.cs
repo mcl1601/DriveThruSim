@@ -9,7 +9,8 @@ public class Order
     public List<Item> completedItems;
     public float timer;
     private float totalTime;
-    public GameObject ticketUI, bag, bagUI;
+    public GameObject ticketUI, bag;
+    public Bag bagScript;
 
     public Order(List<Item> i, float time)
     {
@@ -24,6 +25,12 @@ public class Order
         timer -= Time.deltaTime;
         float percent = timer / totalTime;
         ticketUI.transform.GetChild(2).GetComponent<Image>().fillAmount = percent;
+
+        if(percent < 0.25)
+        {
+            bagScript.StartFlashing();
+        }
+
         return timer < 0;
     }
 }
