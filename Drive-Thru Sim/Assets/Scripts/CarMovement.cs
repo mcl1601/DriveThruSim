@@ -27,6 +27,8 @@ public class CarMovement : MonoBehaviour
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
             rotating = false;
         }
+        if (transform.position.z < -20)
+            Destroy(gameObject);
     }
     void OnTriggerEnter(Collider other)
     {
