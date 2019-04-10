@@ -187,10 +187,12 @@ public class OrderManager : MonoBehaviour
         // check if the bag is done
         if(o.completedItems.Count == o.items.Count)
         {
+            
             // bag completed
             GameObject f = GameObject.Instantiate(fireworks, o.bag.transform.position, Quaternion.identity);
-            f.transform.rotation = new Quaternion(f.transform.rotation.x, f.transform.rotation.y, f.transform.rotation.z, f.transform.rotation.w);
-            Debug.Log("<color=#00ff00ff>Order Completed</color>");
+            f.transform.rotation = new Quaternion(f.transform.rotation.x -.89f, f.transform.rotation.y, f.transform.rotation.z, f.transform.rotation.w);
+            GameObject.Destroy(f, 7f);
+            Debug.Log("<color=#00ff00ff>Order Completed</color>");          
             toRemove.Add(o);
         }
     }
