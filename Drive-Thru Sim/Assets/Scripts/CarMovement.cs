@@ -8,6 +8,7 @@ public class CarMovement : MonoBehaviour
     private float speed = 1.0f;
     private Vector3 position;
     private bool rotating = false;
+    public bool moving = true;
     void Start()
     {
         //Set the position
@@ -18,9 +19,13 @@ public class CarMovement : MonoBehaviour
     void Update()
     {
         //Keep moving it down the driveway
-        position += (transform.up * Time.deltaTime * speed);
+        if(moving)
+        {
+            position += (transform.up * Time.deltaTime * speed);
+        }
+        position.y = 0.27f;
         transform.position = position;
-        if(rotating)
+        if (rotating)
             transform.Rotate(new Vector3(0, -10f, 0) * (2.5f * Time.deltaTime), Space.World);
         if (transform.rotation.eulerAngles.y <= 270f && transform.rotation.eulerAngles.y > 0)
         {
@@ -33,5 +38,7 @@ public class CarMovement : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "RotationTrigger") rotating = true;
+        if (other.gameObject.name == "StopTrigger") moving = false;
     }
+
 }

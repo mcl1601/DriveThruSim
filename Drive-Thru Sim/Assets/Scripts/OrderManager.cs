@@ -10,9 +10,10 @@ public enum Item
 
 public class OrderManager : MonoBehaviour
 {
-    public GameObject orderTicketUI, bagPre, bagUI;
+    public GameObject orderTicketUI, bagPre, bagUI, fireworks;
     public float bagSpacing = 0.125f;
     public float bagWidth = 0.5f;
+    
 
     private List<Order> orders;     // collection of Order Objects
     private Transform ticketParent; // where to instantiate the order tickets
@@ -187,6 +188,8 @@ public class OrderManager : MonoBehaviour
         if(o.completedItems.Count == o.items.Count)
         {
             // bag completed
+            GameObject f = GameObject.Instantiate(fireworks, o.bag.transform.position, Quaternion.identity);
+            f.transform.rotation = new Quaternion(f.transform.rotation.x, f.transform.rotation.y, f.transform.rotation.z, f.transform.rotation.w);
             Debug.Log("<color=#00ff00ff>Order Completed</color>");
             toRemove.Add(o);
         }

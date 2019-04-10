@@ -28,6 +28,10 @@ public class WindowOrder : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             om.OrderWindowNewOrder();
+            foreach(GameObject car in GameObject.FindGameObjectsWithTag("Car"))
+            {
+                car.GetComponent<CarMovement>().moving = true;
+            }
         }
     }
 
