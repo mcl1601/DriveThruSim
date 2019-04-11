@@ -10,7 +10,7 @@ public enum Item
 
 public class OrderManager : MonoBehaviour
 {
-    public GameObject orderTicketUI, bagPre, bagUI, fireworks;
+    public GameObject orderTicketUI, bagPre, bagUI, fireworks, monitor;
     public float bagSpacing = 0.125f;
     public float bagWidth = 0.5f;
     
@@ -52,10 +52,30 @@ public class OrderManager : MonoBehaviour
         GameObject g = Instantiate(orderTicketUI, ticketParent);
         // set the text of the ticket
         Text t = g.transform.GetChild(0).GetComponent<Text>();
+
+        // add order text to the monitor
+        Text txt = monitor.transform.GetChild(0).GetComponent<Text>();
+        txt.text = "mAY i tAKE yOUR oRDER\n";
+
         t.color = Color.red;
         foreach(Item i in items)
         {
-            t.text += i.ToString() + "\n";
+            string color = "<color=#ff0000ff>";
+            switch (i)
+            {
+                case Item.Burger:
+                    color = "<color=#800000ff>"; //maroon
+                    break;
+                case Item.Drink:
+                    color = "<color=#0014ffff>"; //blue
+                    break;
+                case Item.Fry:
+                    color = "<color=#ffdf00ff>"; //gold
+                    break;
+            }
+
+            t.text += color + i.ToString() + "</color>\n";
+            txt.text += color + i.ToString() + "</color>\n";
         }
         // set properties
         o.ticketUI = g;
@@ -183,12 +203,18 @@ public class OrderManager : MonoBehaviour
         t.text = "";
         foreach (Item i in o.items)
         {
-            string color;
+            string color = "<color=#ff0000ff>";
             switch (i) {
-                case Item.Burger: color = "<color=#00ff00ff>";
+                case Item.Burger: color = "<color=#800000ff>"; //brown
+                    break;
+                case Item.Drink:
+                    color = "<color=#0014ffff>"; //blue
+                    break;
+                case Item.Fry:
+                    color = "<color=#ffff00ff>"; //yellow
                     break;
             }
-            t.text += (o.completedItems.Contains(i) ? "<color=#00ff00ff>" : "<color=#ff0000ff>") + i.ToString() + "</color>\n";
+            t.text += (o.completedItems.Contains(i) ? "<color=#00ff00ff>" : color) + i.ToString() + "</color>\n";
         }
 
         // check if the bag is done
