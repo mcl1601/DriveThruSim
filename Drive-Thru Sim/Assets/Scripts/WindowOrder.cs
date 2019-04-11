@@ -25,7 +25,7 @@ public class WindowOrder : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         mat.color = matOriginal + new Color(0.3f,0.3f,0.3f);
-        if (Input.GetKeyDown(KeyCode.E) && other.gameObject.tag=="Car")
+        if (Input.GetKeyDown(KeyCode.E))
         {
             om.OrderWindowNewOrder();
             foreach(GameObject car in GameObject.FindGameObjectsWithTag("Car"))

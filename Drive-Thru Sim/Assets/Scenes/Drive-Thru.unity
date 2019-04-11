@@ -9015,8 +9015,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 1, z: 11}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.5, y: 1, z: 5}
+  m_Center: {x: 0, y: 0, z: -2}
 --- !u!114 &1128840485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9231,6 +9231,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1233823455 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668360659608724, guid: 13db0b795570e514d9ca4d905d4abb93,
+    type: 3}
+  m_PrefabInstance: {fileID: 1658292402}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1250173405 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 3df2746dbbb9fcd4b98280488b85163f,
@@ -9815,6 +9821,10 @@ PrefabInstance:
     - target: {fileID: 100006, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12339,6 +12349,10 @@ PrefabInstance:
       propertyPath: fireworks
       value: 
       objectReference: {fileID: 100002, guid: 180149b1a35449044a27b451e816d2de, type: 3}
+    - target: {fileID: 1001560377, guid: b1ad625d00f9e9e4b84c1bf132b7b03e, type: 3}
+      propertyPath: monitor
+      value: 
+      objectReference: {fileID: 1233823455}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1ad625d00f9e9e4b84c1bf132b7b03e, type: 3}
 --- !u!1001 &4081532902803666352
