@@ -52,10 +52,25 @@ public class OrderManager : MonoBehaviour
         GameObject g = Instantiate(orderTicketUI, ticketParent);
         // set the text of the ticket
         Text t = g.transform.GetChild(0).GetComponent<Text>();
+
         t.color = Color.red;
         foreach(Item i in items)
         {
-            t.text += i.ToString() + "\n";
+            string color = "<color=#ff0000ff>";
+            switch (i)
+            {
+                case Item.Burger:
+                    color = "<color=#800000ff>"; //maroon
+                    break;
+                case Item.Drink:
+                    color = "<color=#0014ffff>"; //blue
+                    break;
+                case Item.Fry:
+                    color = "<color=#ffdf00ff>"; //orange
+                    break;
+            }
+
+            t.text += color + i.ToString() + "</color>\n";
         }
         // set properties
         o.ticketUI = g;
@@ -183,12 +198,18 @@ public class OrderManager : MonoBehaviour
         t.text = "";
         foreach (Item i in o.items)
         {
-            string color;
+            string color = "<color=#ff0000ff>";
             switch (i) {
-                case Item.Burger: color = "<color=#00ff00ff>";
+                case Item.Burger: color = "<color=#800000ff>"; //brown
+                    break;
+                case Item.Drink:
+                    color = "<color=#0014ffff>"; //blue
+                    break;
+                case Item.Fry:
+                    color = "<color=#ffff00ff>"; //yellow
                     break;
             }
-            t.text += (o.completedItems.Contains(i) ? "<color=#00ff00ff>" : "<color=#ff0000ff>") + i.ToString() + "</color>\n";
+            t.text += (o.completedItems.Contains(i) ? "<color=#00ff00ff>" : color) + i.ToString() + "</color>\n";
         }
 
         // check if the bag is done
