@@ -27,9 +27,10 @@ public class WindowOrder : MonoBehaviour
         mat.color = matOriginal + new Color(0.3f,0.3f,0.3f);
         if (Input.GetKeyDown(KeyCode.E))
         {
-            om.OrderWindowNewOrder();
             foreach(GameObject car in GameObject.FindGameObjectsWithTag("Car"))
             {
+                if(car.GetComponent<CarMovement>().moving == false)
+                    om.OrderWindowNewOrder();
                 car.GetComponent<CarMovement>().moving = true;
             }
         }
