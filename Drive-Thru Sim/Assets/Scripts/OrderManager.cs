@@ -10,7 +10,7 @@ public enum Item
 
 public class OrderManager : MonoBehaviour
 {
-    public GameObject orderTicketUI, bagPre, bagUI, fireworks;
+    public GameObject orderTicketUI, bagPre, bagUI, fireworks, monitor;
     public float bagSpacing = 0.125f;
     public float bagWidth = 0.5f;
     
@@ -53,6 +53,10 @@ public class OrderManager : MonoBehaviour
         // set the text of the ticket
         Text t = g.transform.GetChild(0).GetComponent<Text>();
 
+        // add order text to the monitor
+        Text txt = monitor.transform.GetChild(0).GetComponent<Text>();
+        txt.text = "mAY i tAKE yOUR oRDER\n";
+
         t.color = Color.red;
         foreach(Item i in items)
         {
@@ -66,11 +70,12 @@ public class OrderManager : MonoBehaviour
                     color = "<color=#0014ffff>"; //blue
                     break;
                 case Item.Fry:
-                    color = "<color=#ffdf00ff>"; //orange
+                    color = "<color=#ffdf00ff>"; //gold
                     break;
             }
 
             t.text += color + i.ToString() + "</color>\n";
+            txt.text += color + i.ToString() + "</color>\n";
         }
         // set properties
         o.ticketUI = g;
