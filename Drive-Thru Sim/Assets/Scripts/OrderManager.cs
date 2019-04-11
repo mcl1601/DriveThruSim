@@ -10,7 +10,7 @@ public enum Item
 
 public class OrderManager : MonoBehaviour
 {
-    public GameObject orderTicketUI, bagPre, bagUI, fireworks, monitor;
+    public GameObject orderTicketUI, bagPre, bagUI, fireworks, monitor, money;
     public float bagSpacing = 0.125f;
     public float bagWidth = 0.5f;
     
@@ -134,6 +134,10 @@ public class OrderManager : MonoBehaviour
     void Update()
     {
         UpdateOrders();
+        if (Input.GetKey(KeyCode.Q))
+        {
+            GameObject.Instantiate(money, GameObject.Find("Counter").transform.position + new Vector3(0, .5f, 0) + new Vector3(Random.Range(-5f, 5f), Random.Range(0, .5f), Random.Range(-.5f, .5f)), Quaternion.identity);
+        }
     }
 
     /// <summary>
@@ -227,7 +231,8 @@ public class OrderManager : MonoBehaviour
             GameObject f = GameObject.Instantiate(fireworks, o.bag.transform.position, Quaternion.identity);
             f.transform.rotation = new Quaternion(f.transform.rotation.x -.89f, f.transform.rotation.y, f.transform.rotation.z, f.transform.rotation.w);
             GameObject.Destroy(f, 7f);
-
+            for(int i =0; i < 75; i++)
+            GameObject.Instantiate(money, GameObject.Find("Counter").transform.position + new Vector3(0,.5f,0) + new Vector3(Random.Range(-5f,5f), Random.Range(0, .5f), Random.Range(-.5f, .5f)), Quaternion.identity);
             //Console Log
             Debug.Log("<color=#00ff00ff>Order Completed</color>");
             //Remove bag

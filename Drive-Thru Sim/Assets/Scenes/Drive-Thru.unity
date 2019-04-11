@@ -7453,6 +7453,10 @@ PrefabInstance:
       propertyPath: minDuration
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: bf495eacf58e31146ab012aa89ac68da, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 19800004, guid: bf495eacf58e31146ab012aa89ac68da, type: 3}
       propertyPath: InitialModule.startSizeY.minMaxState
       value: 3
@@ -12413,6 +12417,11 @@ PrefabInstance:
       propertyPath: monitor
       value: 
       objectReference: {fileID: 1233823455}
+    - target: {fileID: 1001560377, guid: b1ad625d00f9e9e4b84c1bf132b7b03e, type: 3}
+      propertyPath: money
+      value: 
+      objectReference: {fileID: 177759803, guid: 39e99f630ef718d4e9e54038bd064118,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1ad625d00f9e9e4b84c1bf132b7b03e, type: 3}
 --- !u!1001 &4081532902803666352
