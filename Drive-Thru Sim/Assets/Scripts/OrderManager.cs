@@ -82,8 +82,10 @@ public class OrderManager : MonoBehaviour
         float x = transform.position.x - width + (bagWidth * 0.5f + bagSpacing) // where the first bag is placed
             + ((bagWidth + (2 * bagSpacing)) * numBags);                        // times each bag after it
         // set the position of the bag
-        Vector3 v = new Vector3(x, transform.position.y + (transform.localScale.y * 0.25f) + bagWidth, transform.position.z);
-        GameObject g = Instantiate(bagPre, v, Quaternion.identity);
+        Vector3 v = new Vector3(x, 0.5f, transform.position.z);
+        Quaternion rot = new Quaternion();
+        rot.eulerAngles = new Vector3(-90f, 0f, 0f);
+        GameObject g = Instantiate(bagPre, v, rot);
         g.GetComponent<Bag>().order = o;
 
         // create the UI popover or the bag
