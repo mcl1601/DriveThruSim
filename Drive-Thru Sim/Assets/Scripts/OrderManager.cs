@@ -183,6 +183,11 @@ public class OrderManager : MonoBehaviour
         t.text = "";
         foreach (Item i in o.items)
         {
+            string color;
+            switch (i) {
+                case Item.Burger: color = "<color=#00ff00ff>";
+                    break;
+            }
             t.text += (o.completedItems.Contains(i) ? "<color=#00ff00ff>" : "<color=#ff0000ff>") + i.ToString() + "</color>\n";
         }
 
@@ -191,10 +196,15 @@ public class OrderManager : MonoBehaviour
         {
             
             // bag completed
+
+            //Set off firework
             GameObject f = GameObject.Instantiate(fireworks, o.bag.transform.position, Quaternion.identity);
             f.transform.rotation = new Quaternion(f.transform.rotation.x -.89f, f.transform.rotation.y, f.transform.rotation.z, f.transform.rotation.w);
             GameObject.Destroy(f, 7f);
-            Debug.Log("<color=#00ff00ff>Order Completed</color>");          
+
+            //Console Log
+            Debug.Log("<color=#00ff00ff>Order Completed</color>");
+            //Remove bag
             toRemove.Add(o);
         }
     }

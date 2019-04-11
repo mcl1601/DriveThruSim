@@ -996,7 +996,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 347094716}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &347094718
 Camera:
   m_ObjectHideFlags: 0
@@ -6284,7 +6284,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7e4e4c1bed1e76546bf654f688c8e890, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -6393,7 +6393,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &534669904
 Camera:
   m_ObjectHideFlags: 0
@@ -9227,7 +9227,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7e4e4c1bed1e76546bf654f688c8e890, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: -0.62
   Loop: 1
   Mute: 0
@@ -12476,6 +12476,11 @@ PrefabInstance:
       propertyPath: prepTime
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 563117211141855721, guid: cec3a6421333adb4aad60d5fca3e0449,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fadf238cf110a2742b4b670e12cddb9c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cec3a6421333adb4aad60d5fca3e0449, type: 3}
 --- !u!1001 &6259847197040743674
