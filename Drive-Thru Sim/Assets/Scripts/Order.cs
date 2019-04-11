@@ -11,7 +11,7 @@ public class Order
     private float totalTime;
     public GameObject ticketUI, bag;
     public Bag bagScript;
-
+    private bool flashing = false;
     public Order(List<Item> i, float time)
     {
         items = i;
@@ -26,8 +26,9 @@ public class Order
         float percent = timer / totalTime;
         ticketUI.transform.GetChild(2).GetComponent<Image>().fillAmount = percent;
 
-        if(percent < 0.25)
+        if(percent < 0.25 && !flashing)
         {
+            flashing = true;
             bagScript.StartFlashing();
         }
 
